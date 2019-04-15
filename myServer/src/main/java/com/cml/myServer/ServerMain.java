@@ -1,4 +1,4 @@
-package com.cml.server;
+package com.cml.myServer;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

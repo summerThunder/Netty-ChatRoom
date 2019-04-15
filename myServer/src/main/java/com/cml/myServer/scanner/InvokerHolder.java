@@ -1,9 +1,9 @@
-package com.cml.server.scanner;
+package com.cml.myServer.scanner;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cml.server.scanner.Invoker;
+import com.cml.myServer.scanner.Invoker;
 
 //执行器管理器
 public class InvokerHolder {

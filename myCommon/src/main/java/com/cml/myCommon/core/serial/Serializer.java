@@ -308,6 +308,8 @@ public abstract class Serializer {
 		
 		return this;
 	}
+
+	
 	
 	
 	

@@ -3,7 +3,7 @@ package com.cml.myCommon.core.session;
 import io.netty.channel.Channel;
 import io.netty.util.AttributeKey;
 
-//实现一个session内部两个成员key和
+//实现一个session内部两个成员key和channel
 public class SessionImpl implements Session{
 	/**
 	 * 绑定对象key
@@ -55,7 +55,7 @@ public class SessionImpl implements Session{
 	@Override
 	public void close() {
 		// TODO Auto-generated method stub
-		
+		channel.close();
 	}
 
 }

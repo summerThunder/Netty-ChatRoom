@@ -1,4 +1,4 @@
-package com.cml.server;
+package com.cml.myServer;
 
 import org.springframework.stereotype.Component;
 
@@ -48,7 +48,7 @@ public class Server {
  			//绑定端口
  			//bind返回一个ChannelFuture,
  			//ChannelFuture方法sync,Waits for this future until it is done
- 			//也返回一个CF
+ 			//也返回一个CF,sync阻塞
  			b.bind(10102).sync();
 	    }catch(Exception e){
 	    	e.printStackTrace();

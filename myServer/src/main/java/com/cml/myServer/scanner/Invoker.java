@@ -1,4 +1,4 @@
-package com.cml.server.scanner;
+package com.cml.myServer.scanner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
