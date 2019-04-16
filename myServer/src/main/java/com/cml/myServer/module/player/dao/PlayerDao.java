@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.cml.myServer.module.player.dao.entity.Player;
 
-@Component
+@Repository
 public class PlayerDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;

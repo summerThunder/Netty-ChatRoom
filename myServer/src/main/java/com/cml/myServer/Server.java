@@ -15,6 +15,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 //server要做成一个成员，在启动时就加载，并被启动类用getBean的方式实例化并使用
 //并没有用到Controller，Controller层只接受应用层请求
+
 @Component
 public class Server {
 	public void start() {
@@ -49,7 +50,8 @@ public class Server {
  			//bind返回一个ChannelFuture,
  			//ChannelFuture方法sync,Waits for this future until it is done
  			//也返回一个CF,sync阻塞
- 			b.bind(10102).sync();
+ 			b.bind(10101).sync();
+ 			System.out.println("start!!!");
 	    }catch(Exception e){
 	    	e.printStackTrace();
 	    }

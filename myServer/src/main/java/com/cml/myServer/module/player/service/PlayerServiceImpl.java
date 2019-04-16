@@ -1,6 +1,7 @@
 package com.cml.myServer.module.player.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cml.myCommon.core.session.Session;
 import com.cml.myCommon.core.session.SessionManager;
@@ -10,6 +11,7 @@ import com.cml.myServer.module.player.dao.entity.Player;
 import com.cml.myCommon.core.exception.ErrorCodeException;
 import com.cml.myCommon.core.model.ResultCode;
 
+@Service
 public class PlayerServiceImpl implements PlayerService{
     
 	@Autowired
@@ -18,7 +20,7 @@ public class PlayerServiceImpl implements PlayerService{
 	//登陆注册需要参数session,playerName,password
 	@Override
 	public PlayerResponse registerAndLogin(Session session, String playerName, String password) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		Player existplayer=playerDao.getPlayerByName(playerName);
 		//如果是基本数据类型返回空会报错，对象则没有这个问题
 		
@@ -39,7 +41,7 @@ public class PlayerServiceImpl implements PlayerService{
     
 	
 	@Override
-	public PlayerResponse login(Session session, String playerName, String passward) {
+	public PlayerResponse login(Session session, String playerName, String password) {
 		// TODO Auto-generated method stub
 		// 判断当前会话是否已登录
 		//AttributeKey实现Attribute接口的方法也必须是线程安全的。类似于threadLocal
@@ -55,7 +57,7 @@ public class PlayerServiceImpl implements PlayerService{
 		}
 		
 		// 密码错误
-		if (!player.getPassward().equals(passward)) {
+		if (!player.getPassward().equals(password)) {
 			throw new ErrorCodeException(ResultCode.PASSWARD_ERROR);
 		}
 		
@@ -73,7 +75,7 @@ public class PlayerServiceImpl implements PlayerService{
 			
 		}
 		
-		// 加入在线玩家会话
+		// 加入在线玩家会话，在这里给session绑上key
 		if (SessionManager.putSession(player.getPlayerId(), session)) {
 			session.setAttachment(player);
 		} else {

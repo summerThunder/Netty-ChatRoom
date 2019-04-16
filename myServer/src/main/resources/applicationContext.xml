@@ -17,7 +17,8 @@
 
 	<!-- 包扫描 -->
 	<context:annotation-config />
-	<context:component-scan base-package="com.cn.server"></context:component-scan>
+	<!-- 这里是component的扫描，下面是sql工厂的扫描 -->
+	<context:component-scan base-package="com.cml.myServer"></context:component-scan>
 	<!-- 引入配置 -->
 	<context:property-placeholder location="classpath:/*.properties" />
 
@@ -44,7 +45,7 @@
 		<property name="packagesToScan">
 			<list>
 				<!-- 扫描实体类，也就是entity -->
-				<value>com.cn.server</value>
+				<value>com.cml.Server</value>
 			</list>
 		</property>
 	</bean>

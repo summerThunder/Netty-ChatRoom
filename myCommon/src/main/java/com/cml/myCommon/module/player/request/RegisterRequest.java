@@ -17,7 +17,7 @@ public class RegisterRequest extends Serializer{
 	/**
 	 * 密码
 	 */
-	private String passward;
+	private String password;
 
 	public String getPlayerName() {
 		return playerName;
@@ -28,22 +28,22 @@ public class RegisterRequest extends Serializer{
 	}
 
 	public String getPassward() {
-		return passward;
+		return password;
 	}
 
-	public void setPassward(String passward) {
-		this.passward = passward;
+	public void setPassward(String password) {
+		this.password = password;
 	}
 	
 	@Override
 	protected void read() {
 		this.playerName = readString();
-		this.passward = readString();
+		this.password = readString();
 	}
 
 	@Override
 	protected void write() {
 		writeString(playerName);
-		writeString(passward);
+		writeString(password);
 	}
 }

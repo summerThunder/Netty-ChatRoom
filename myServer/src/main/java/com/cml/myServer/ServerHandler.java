@@ -18,7 +18,7 @@ import com.cml.myCommon.core.serial.Serializer;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-
+//业务逻辑在这个类里
 public class ServerHandler extends SimpleChannelInboundHandler<Request>{
     
 	/**
@@ -44,8 +44,11 @@ public class ServerHandler extends SimpleChannelInboundHandler<Request>{
 		System.out.println("module:"+request.getModule() + "   " + "cmd：" + request.getCmd());
 	
 		//获取命令执行器
-		//自己定义的Invoker,本质是反射
-		//拿到某个module下的某个函数
+		//自己定义的Invoker,本质是反射，为什么用反射，针对不同模块都用invoke，解耦
+		//对玩家模块invoke(session,request.getData())，聊天模块invoke(player.getPlayerId(), request.getData());
+		//玩家有session,聊天模式有player?
+		//拿到某个module下的某个函数，这个聊天室有两种模式
+		//cmd是方法名
 		Invoker invoker = InvokerHolder.getInvoker(request.getModule(), request.getCmd());
 		if(invoker!=null) {
 			try {
@@ -54,6 +57,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<Request>{
 				//??假如是玩家模块传入channel参数(即session)，否则传入playerId参数
 				if(request.getModule()==ModuleId.PLAYER) {
 				//session也是invoke的一个参数
+			    //data是聊天数据
 				 result=(Result<?>)	invoker.invoke(session,request.getData());
 				}else {
 					

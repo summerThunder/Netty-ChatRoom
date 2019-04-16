@@ -24,7 +24,7 @@ public class Player {
 	/**
 	 * 密码
 	 */
-	private String passward;
+	private String password;
 	
 	/**
 	 * 等级
@@ -53,11 +53,11 @@ public class Player {
 	}
 
 	public String getPassward() {
-		return passward;
+		return password;
 	}
 
-	public void setPassward(String passward) {
-		this.passward = passward;
+	public void setPassward(String password) {
+		this.password = password;
 	}
 
 	public int getLevel() {

@@ -7,16 +7,16 @@ public interface PlayerService {
 	/**
 	 * 登录注册用户
 	 * @param playerName
-	 * @param passward
+	 * @param password
 	 * @return
 	 */
-	public PlayerResponse registerAndLogin(Session session, String playerName, String passward);
+	public PlayerResponse registerAndLogin(Session session, String playerName, String password);
 	
 	/**
 	 * 登录
 	 * @param playerName
-	 * @param passward
+	 * @param password
 	 * @return
 	 */
-	public PlayerResponse login(Session session, String playerName, String passward);
+	public PlayerResponse login(Session session, String playerName, String password);
 }
